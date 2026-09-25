@@ -1,0 +1,15 @@
+// src/features/SmartSwitch.tsx
+export const SmartSwitchAlert = ({ disruption }) => (
+  <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-2xl shadow-sm">
+    <h3 className="font-bold text-red-800 flex items-center">
+      <Zap className="mr-2" size={18} /> Metro Disruption Detected
+    </h3>
+    <p className="text-sm text-red-600 mt-1">
+      {disruption.reason} - Impact: {disruption.impact}
+    </p>
+    <div className="mt-3 bg-white p-3 rounded-xl border border-red-100">
+      <p className="text-xs font-bold text-gray-500 uppercase">Alternative Route</p>
+      <p className="text-sm font-semibold">{disruption.alternative}</p>
+    </div>
+  </div>
+);

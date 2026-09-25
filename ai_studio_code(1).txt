@@ -1,0 +1,45 @@
+// src/components/JourneyPlanner.tsx
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, MapPin, Zap, Leaf, Footprints } from 'lucide-react';
+
+const JourneyPlanner = () => {
+  const [route, setRoute] = useState(null);
+
+  const handleSearch = () => {
+    // Simulated Demo Response
+    setRoute({
+      type: 'Fastest',
+      modes: ['Metro', 'Auto'],
+      time: '45 min',
+      cost: '₹85 (Demo estimate)',
+      steps: ['Walk to Kukatpally Station', 'Metro to MGBS', 'Auto to Charminar']
+    });
+  };
+
+  return (
+    <div className="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Where to?</h2>
+      <div className="space-y-4">
+        <input className="w-full p-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-blue-500" placeholder="From: Kukatpally" />
+        <input className="w-full p-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-blue-500" placeholder="To: Charminar" />
+        <button 
+          onClick={handleSearch}
+          className="w-full py-4 bg-blue-600 text-white rounded-2xl font-semibold hover:bg-blue-700 transition"
+        >
+          Plan Journey
+        </button>
+      </div>
+
+      {route && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 p-4 border-2 border-blue-100 rounded-2xl bg-blue-50/50">
+          <div className="flex justify-between items-center mb-2">
+            <span className="font-bold text-blue-800">{route.type} Route</span>
+            <span className="text-sm font-medium">{route.time}</span>
+          </div>
+          <p className="text-sm text-gray-600">{route.steps.join(' → ')}</p>
+        </motion.div>
+      )}
+    </div>
+  );
+};

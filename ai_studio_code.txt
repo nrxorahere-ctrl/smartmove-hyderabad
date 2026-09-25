@@ -1,0 +1,7 @@
+src/
+├── components/         # UI Atoms (Cards, Buttons, Inputs)
+├── features/           # SmartSwitch, MoveAI, JourneyPlanner
+├── pages/              # Dashboard, Explore, Tickets, Trips, Profile
+├── data/               # Mock/Demo data services
+├── hooks/              # State management for modes (Rain, Accessibility)
+└── types/              # TypeScript interfaces
